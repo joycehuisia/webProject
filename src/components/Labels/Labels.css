@@ -1,0 +1,9 @@
+@import "../variables.css";
+
+.basicLabel {
+	color: red;
+}
+
+.hide {
+	display: none;
+}
