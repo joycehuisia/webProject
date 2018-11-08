@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "type": "text",
+      "data": "This is how to setup the EZRobot"
+    },
+    {
+      "type": "video",
+      "data": "https://www.youtube.com/watch?v=-9fmHgz3BPw"
+    },
+    {
+      "type": "image",
+      "data": "https://i.ytimg.com/vi/-9fmHgz3BPw/maxresdefault.jpg"
+    },
+    {
+      "type": "text",
+      "data":
+        "sladkaslhjkjshdkajhdka askjhdakhdlakd askjhdakhdlakdlkdakjlajsdla "
+    }
+  ]
+}
