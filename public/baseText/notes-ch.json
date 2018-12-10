@@ -1,0 +1,15 @@
+{
+  "Folder": "notes",
+  "menu": [
+    {
+      "name": "Setup",
+      "pageId": "setup",
+      "filepath": "setup.json"
+    },
+    {
+      "name": "EZRobot",
+      "pageId": "ezrobot",
+      "filepath": "ezrobot.json"
+    }
+  ]
+}

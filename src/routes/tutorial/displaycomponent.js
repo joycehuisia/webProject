@@ -3,9 +3,30 @@ import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Tutorial.css';
 
+class MyComponent extends React.Component {
+	static propTypes = {
+		data: PropTypes.shape({
+			type: PropTypes.string.isRequired,
+			data: PropTypes.string
+		}).isRequired
+	};
 
+	render() {
+		let item = this.props.data;
+	  	switch(item.type) {
+	  		case "text":
+	  			return (<div>{item.data}</div>);
+	  		case "video":
+	  			return (<video src={item.data} />);
+	  		case "image":
+	  			return (<img src={item.data} />);
+	  		default:
+	  			return null;
+	  	}
+	}
+}
 
-class displaycomponent extends React.Component {
+class Displaycomponent extends React.Component {
   static propTypes = {
     data: PropTypes.arrayOf(
       PropTypes.shape({
@@ -15,24 +36,15 @@ class displaycomponent extends React.Component {
     ).isRequired,
   };
 
-  MyComponent(props) {
-  	let item = props.item;
-  	switch(item.type) {
-  		case "text":
-  			return (<div>{item.data}</div>);
-  		case "video":
-  			return (<video src={item.data} />);
-  		case "image":
-  			return (<img src={item.data} />);
-  	}
-  }
-
   render() {
+  	if(!this.props.data) {
+  		return null;
+  	}
   	return (
   		<div>
   		{	
-  			this.props.data.map(item =>
-  				<MyComponent data={item} />
+  			this.props.data && this.props.data.map(item =>
+  				<MyComponent key={item.id} data={item} />
   			)
   		}
   		</div>
@@ -42,4 +54,4 @@ class displaycomponent extends React.Component {
 }
 
 
-export default withStyles(s)(displaycomponent);
+export default withStyles(s)(Displaycomponent);

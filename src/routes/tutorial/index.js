@@ -12,6 +12,7 @@ import Tutorial from './Tutorial';
 import Layout from '../../components/Layout';
 
 async function action({ fetch }) {
+  var language = "en";
   const data = await getFeed();
   
   return {
@@ -27,7 +28,7 @@ async function action({ fetch }) {
 
 
 function getFeed() {
-	return fetch('http://localhost:3000/notes.json')
+	return fetch('http://localhost:3000/notes-'+language+'.json')
 		.then(function(resp) {
 			return resp.json();
 		}).then(function(body) {

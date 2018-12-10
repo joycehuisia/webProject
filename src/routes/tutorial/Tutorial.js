@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Tutorial.css';
 import { SideNav, Nav } from 'react-sidenav';
-import displaycomponent from './displaycomponent';
+import Displaycomponent from './displaycomponent';
 
 class Tutorial extends React.Component {
   static propTypes = {
@@ -25,11 +25,23 @@ class Tutorial extends React.Component {
     ).isRequired,
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    }
+  }
+
   onItemSelection = (arg) => {
+    console.log("called");
+    console.log(arg);
+    if(!arg.payload) {
+      return;
+    }
     this.setState({selectedPath: arg.path});
     getInfo(arg.payload.filepath)
       .then((data) => {
-        return <displaycomponent data={data} />
+         this.setState({data: data});
       });
   }
 
@@ -37,7 +49,8 @@ class Tutorial extends React.Component {
     return (
       <div>
         <SideNav
-          onItemSelection={this.onItemSelection}>
+          onItemSelection={this.onItemSelection}
+          defaultSelectedPath={this.props.menu[0].pageId}>
         {
           this.props.menu.map(item => (
             <Nav key={item.pageId} id={item.pageId} payload={item}>
@@ -46,6 +59,7 @@ class Tutorial extends React.Component {
           ))}
         </SideNav>
         <div>
+          <Displaycomponent data={this.state.data.data} />
         </div>
       </div>
     );

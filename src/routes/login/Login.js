@@ -8,9 +8,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Login.css';
 import hmacSHA512 from 'crypto-js/hmac-sha512';
 import Base64 from 'crypto-js/enc-base64';
 import HelpBlock from '../../components/Labels/HelpBlock';
@@ -19,7 +16,7 @@ import Input from '../../components/Input/Input';
 
 class Login extends React.Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    title:PropTypes.string.isRequired,
   };
 
   constructor(props) {
@@ -175,4 +172,4 @@ class Login extends React.Component {
   }
 }
 
-export default withStyles(s)(Login);
+export default Login;
