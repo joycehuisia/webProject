@@ -7,13 +7,10 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import Sequelize from 'sequelize';
-import config from '../config';
-
-const sequelize = new Sequelize(config.databaseUrl, {
-  define: {
-    freezeTableName: true,
-  },
-});
-
-export default sequelize;
+// Prettier configuration
+// https://prettier.io/docs/en/configuration.html
+module.exports = {
+  printWidth: 80,
+  singleQuote: true,
+  trailingComma: 'all',
+};
