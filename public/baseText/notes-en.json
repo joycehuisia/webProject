@@ -10,6 +10,11 @@
       "name": "EZRobot",
       "pageId": "ezrobot",
       "filepath": "ezrobot.json"
+    },
+    {
+      "name": "Connect to EZRobot",
+      "pageId": "connection",
+      "filepath": "connection.json"
     }
   ]
 }

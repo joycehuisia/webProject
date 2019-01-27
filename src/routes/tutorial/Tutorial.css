@@ -1,0 +1,9 @@
+.sidenav {
+  left: 0;
+  width: 20%;
+  position: absolute;
+}
+
+.main {
+  margin-left: 20%;
+}
