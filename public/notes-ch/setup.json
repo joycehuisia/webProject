@@ -3,7 +3,7 @@
     {
       "id": "text1",
       "type": "text",
-      "data": "This is how to setup the EZRobot"
+      "data": "<h1>This is how to setup the EZRobot</h1>"
     },
     {
       "id": "video1",

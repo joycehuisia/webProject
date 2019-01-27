@@ -22,7 +22,9 @@ class MyComponent extends React.Component {
       case 'text':
         return <div dangerouslySetInnerHTML={renderHTML(item.data)} />;
       case 'video':
-        return <video src={item.data} />;
+        return <iframe height="10%" width="80%"
+                    data-youtube-id={item.youtubeId}
+                    src={item.data} />;
       case 'image':
         return <img src={item.data} alt="" />;
       default:

@@ -21,7 +21,7 @@ const routes = {
     },
     {
       path: '/tutorial',
-      load: () => import(/* webpackChunkName: 'contact' */ './tutorial'),
+      load: () => import(/* webpackChunkName: 'tutorial' */ './tutorial'),
     },
     {
       path: '/login',

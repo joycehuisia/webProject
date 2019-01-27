@@ -3,12 +3,13 @@
     {
       "id": "text1",
       "type": "text",
-      "data": "This is how to setup the EZRobot"
+      "data": "<h1>This is how to setup the EZRobot</h1>"
     },
     {
       "id": "video1",
       "type": "video",
-      "data": "https://www.youtube.com/watch?v=fh206_UbNnA"
+      "data": "https://www.youtube.com/embed/fh206_UbNnA",
+      "youtubeId": "fh206_UbNnA"
     },
     {
       "id": "text2",
