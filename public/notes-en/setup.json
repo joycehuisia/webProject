@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "id": "text1",
+      "type": "text",
+      "data": "This is how to setup the EZRobot"
+    },
+    {
+      "id": "video1",
+      "type": "video",
+      "data": "https://www.youtube.com/watch?v=fh206_UbNnA"
+    },
+    {
+      "id": "text2",
+      "type": "text",
+      "data":
+        "<p>1. Download 'EZ builder'<br />2. read terms of use, click 'I agree'<br />3. Login or create an EZ cloud account. 4. choose 'ok' on the screen show Success&nbsp;<br />5. use EZ cloud to access example and public robot project apps<br />(can click 'Search' to access the EZ robot certified project apps in the future)<br />6. Select the default&nbsp; 'JD' project.&nbsp;<br />7. Choose 'Download &amp; Install' to load the project.&nbsp;<br />8. Click on the 'Connect' button. Power on the robot and lay it down on a flat surface.&nbsp;<br />9. Select the 'EZ-B b4? Wi-Fi connection and click 'Connect'<br />10. Then click 'Back' to the Apps<br />11. Servos need calibration to compensate for any slight hardware discrepancies&nbsp;<br />12. Click on 'Servo Profile' and choose 'New' to create a profile<br />13. The servos of each arm and leg should be set in a straight line<br />14. Adjust the software servo values to line up each servo. Start with the servos closest to the body and move outwards. (both sides, arms and legs)<br />15. the robot grippers should not make a vibrating or grinding noise. Adjust the gripper servos as necessary to prevent damage.<br />16. Name the servo profile and save for future use.<br />17. Return to the main screen<br />18. The red stop button will return 'JD' to a standing pose.<br />19. Clicking on buttons such as 'Fly' will execute pre-designed actions.<br />20. The arrow buttons can be used for movement control.<br />21. Explore other actions such as 'Headstand' or 'Sit down'.&nbsp;<br />22. JD can return to standing from a forward or backwards position.&nbsp;<br />23. The default project also includes audio control, which can be used in features such as dance actions.<br />24. The top-left 'hamburger' menu icon will access other features of the app.<br />25. 'RoboScratch' or 'Blockly' can be used to create custom programs.&nbsp; Click on 'RoboScratch' to get started.<br />26. Scroll through left-hand menu to view the available command options. Click on an action to add it to the workspace.&nbsp;<br />27. For example, click on 'Forward' to add on the forward movement command. Click on the timing value and scroll to 2.0 sec.&nbsp;<br />28. Click on 'Mic' and then click on 'Play'. Nine channels are available for recording.&nbsp; Select a channel number and click 'Start Recording ' to record an audio clip.<br />29. Click on 'Wait For Face'. This action will wait for a face to be detected in the camera view.<br />30. Add another 'Mic' command and click on 'Play'. Select a different channel number to record an audio clip that will played once a face is detected.(up to 9 records)<br />31. Click on 'Action (Wait) and scroll to the 'Wave' action. A '(Wait) action will execute entirely before moving to the next command.&nbsp;<br />32. Click on 'Take Photo' to capture a photo of the camera view.<br />33. This code will make the robot walk forward for two seconds,&nbsp; play an audio clip, wait for a face to be detected and then play another audio clip while waving.<br />34. When the waving is complete, the robot will take a photo.<br />35. Click on the 'Start' button to execute the code. Follow the highlighting and the green line to view the execution progress.<br />36. if want to reuse it. Click on 'Save' and name the project for future use. The captured photos will be stored directly to the device.&nbsp;<br />37. 'Blockly' can be used to create a more complicated custom program.<br />38. The default 'JD' project app includes color tracking.<br />39. The default color for tracking is red. Choose a red object and hold it against a contrasting background.&nbsp;<br />40. Color tracking works best when the light source is not directly behind the robot.<br />41. Select the 'Red Color Tracking' checkbox. The robot's head will follow the movements of the object.<br />42. Keep exploring all of the mobile app features.</p>"
+    },
+    {
+      "id": "text3",
+      "type": "text",
+      "data":
+        "sladkaslhjkjshdkajhdka askjhdakhdlakd askjhdakhdlakdlkdakjlajsdla "
+    }
+  ]
+}
