@@ -11,9 +11,9 @@
 // https://babeljs.io/docs/usage/api/
 module.exports = {
   plugins: [
-    require("@babel/plugin-syntax-dynamic-import"),
-    [require("@babel/plugin-proposal-decorators"), { "legacy": true }],
-    [require("@babel/plugin-proposal-class-properties"), { "loose": false }],
+    require('@babel/plugin-syntax-dynamic-import'),
+    [require('@babel/plugin-proposal-decorators'), { legacy: true }],
+    [require('@babel/plugin-proposal-class-properties'), { loose: false }],
   ],
   presets: [
     [
