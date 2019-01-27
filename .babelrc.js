@@ -19,7 +19,6 @@ module.exports = {
         },
       },
     ],
-    '@babel/preset-stage-2',
     '@babel/preset-flow',
     '@babel/preset-react',
   ],
