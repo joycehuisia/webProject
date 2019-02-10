@@ -17,7 +17,7 @@ import Displaycomponent from './displaycomponent';
 import { SideNav, Nav } from 'react-sidenav';
 
 function getInfo(path) {
-  return fetch(`http://localhost:3000/notes-en/${path}`)
+  return fetch(`http://localhost:3000/notes-ch/${path}`)
     .then(resp => resp.json())
     .then(body => body)
     .catch(() => Promise.reject({ error: 'Failed to load data' }));
