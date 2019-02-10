@@ -38,6 +38,7 @@ class Tutorial extends React.Component {
     super(props);
     this.state = {
       data: [],
+      lang: 0
     };
   }
 
@@ -55,10 +56,24 @@ class Tutorial extends React.Component {
       });
   };
 
+  componentWillUpdate = (prevState, nextState) => {
+    console.log("previous state");
+    console.log(prevState);
+    console.log("next state");
+    console.log(nextState);
+
+    return false;
+  }
+
+  changeLanguage = () => {
+    this.setState({lang: !this.state.lang});
+  }
+
   render() {
     return (
       <div>
         <div className={s.sidenav}>
+          <button onClick={this.changeLanguage}> Toggle EN/CH </button>
           <SideNav
             onItemSelection={this.onItemSelection}
             defaultSelectedPath={this.props.menu[0].pageId}
@@ -71,7 +86,7 @@ class Tutorial extends React.Component {
           </SideNav>
         </div>
         <div className={s.main}>
-          <Displaycomponent data={this.state.data.data} />
+          <Displaycomponent data={this.state.data.data}/>
         </div>
       </div>
     );

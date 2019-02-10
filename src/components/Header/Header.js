@@ -14,6 +14,7 @@ import Link from '../Link';
 import Navigation from '../Navigation';
 import logoUrl from './logo-small.png';
 import logoUrl2x from './logo-small@2x.png';
+import teaLogo from './TEA_logo.jpg';
 
 class Header extends React.Component {
   render() {
@@ -23,13 +24,12 @@ class Header extends React.Component {
           <Navigation />
           <Link className={s.brand} to="/">
             <img
-              src={logoUrl}
-              srcSet={`${logoUrl2x} 2x`}
-              width="38"
+              src={teaLogo}
+              srcSet={`${teaLogo} 2x`}
+              width="100"
               height="38"
               alt="React"
             />
-            <span className={s.brandTxt}>Company</span>
           </Link>
         </div>
       </div>
