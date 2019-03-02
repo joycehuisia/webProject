@@ -14,6 +14,7 @@ import copy from './copy';
 import bundle from './bundle';
 import render from './render';
 import pkg from '../package.json';
+import create from './create';
 
 /**
  * Compiles the project from source files into a distributable
@@ -22,6 +23,7 @@ import pkg from '../package.json';
 async function build() {
   await run(clean);
   await run(copy);
+  await run(create);
   await run(bundle);
 
   if (process.argv.includes('--static')) {

@@ -13,6 +13,7 @@
     "not ie < 9"
   ],
   "dependencies": {
+    "axios": "^0.18.0",
     "@babel/polyfill": "^7.0.0-beta.51",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.2",

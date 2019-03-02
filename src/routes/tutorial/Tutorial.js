@@ -10,17 +10,33 @@
 import React from 'react';
 import Promise from 'promise';
 import PropTypes from 'prop-types';
-import fetch from 'isomorphic-fetch';
+import axios from 'axios';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Tutorial.css';
 import Displaycomponent from './displaycomponent';
 import { SideNav, Nav } from 'react-sidenav';
 
-function getInfo(path) {
-  return fetch(`http://localhost:3000/notes-ch/${path}`)
-    .then(resp => resp.json())
-    .then(body => body)
+function getFeed(lang) {
+  return axios.get(`/baseText/notes-${lang}.json`);
+}
+
+function getInfo(path, lang) {
+  const filepath = path.filepath;
+  return axios
+    .get(`/notes-${lang}/${filepath}`)
     .catch(() => Promise.reject({ error: 'Failed to load data' }));
+}
+
+function getLang(lang) {
+  switch (lang) {
+    case 2:
+      return 'zh'; // for simplified
+    case 1:
+      return 'ch'; // for traditional
+    case 0:
+    default:
+      return 'en';
+  }
 }
 
 class Tutorial extends React.Component {
@@ -31,62 +47,108 @@ class Tutorial extends React.Component {
         pageId: PropTypes.string,
         filepath: PropTypes.string,
       }),
-    ).isRequired,
+    ),
   };
 
   constructor(props) {
     super(props);
     this.state = {
+      menu: [],
       data: [],
-      lang: 0
+      lang: 'en',
+      currentLang: 'en',
+      currentItem: null,
+      selectedPath: null,
     };
+
+    this.retrieveMenu();
   }
 
   onItemSelection = arg => {
     if (!arg.payload) {
       return;
     }
-    this.setState({ selectedPath: arg.path });
-    getInfo(arg.payload.filepath)
-      .then(data => {
-        this.setState({ data });
+
+    this.retrieveMenuItemInfo(arg);
+  };
+
+  retrieveMenuItemInfo = arg => {
+    let path;
+    let selectedItem;
+    console.log(arg);
+    if (arg) {
+      selectedItem = arg.payload;
+      path = arg.path;
+    }
+    path = path || this.state.selectedPath || this.state.menu[0].pageId || '';
+    selectedItem =
+      selectedItem || this.state.currentItem || this.state.menu[0] || {};
+    console.log(path);
+    console.log(selectedItem);
+    this.setState({ selectedPath: path });
+    this.setState({ currentItem: selectedItem });
+    getInfo(selectedItem, this.state.currentLang)
+      .then(resp => {
+        this.setState({ data: resp.data });
       })
       .catch(data => {
         console.info(data);
       });
   };
 
-  componentWillUpdate = (prevState, nextState) => {
-    console.log("previous state");
-    console.log(prevState);
-    console.log("next state");
-    console.log(nextState);
+  retrieveMenu = arg => {
+    getFeed(this.state.currentLang).then(data => {
+      this.setState({ menu: data.data.menu });
+      return this.retrieveMenuItemInfo();
+    });
+  };
 
+  componentWillUpdate = (prevState, nextState) => {
+    if (this.state.lang != this.state.currentLang) {
+      this.setState({ currentLang: this.state.lang });
+      this.retrieveMenu();
+      return true;
+    }
     return false;
-  }
+  };
 
   changeLanguage = () => {
-    this.setState({lang: !this.state.lang});
-  }
+    let newLang = 'en';
+    switch (this.state.lang) {
+      case 'en':
+        newLang = 'ch';
+        break;
+      case 'ch':
+        newLang = 'en';
+      default:
+        newLang = 'en';
+        break;
+    }
+    this.setState({ lang: newLang }, () => {
+      console.log(this.state.lang);
+      this.componentWillUpdate();
+    });
+  };
 
   render() {
     return (
       <div>
         <div className={s.sidenav}>
-          <button onClick={this.changeLanguage}> Toggle EN/CH </button>
-          <SideNav
-            onItemSelection={this.onItemSelection}
-            defaultSelectedPath={this.props.menu[0].pageId}
-          >
-            {this.props.menu.map(item => (
-              <Nav key={item.pageId} id={item.pageId} payload={item}>
-                {item.name}
-              </Nav>
-            ))}
+          <button onClick={this.changeLanguage}>
+            {' '}
+            {this.state.currentLang}{' '}
+          </button>
+          <SideNav onItemSelection={this.onItemSelection}>
+            {this.state.menu &&
+              this.state.menu.map(item => (
+                <Nav key={item.pageId} id={item.pageId} payload={item}>
+                  {item.name}
+                </Nav>
+              ))}
           </SideNav>
         </div>
         <div className={s.main}>
-          <Displaycomponent data={this.state.data.data}/>
+          <Displaycomponent data={this.state.data.data} />
         </div>
       </div>
     );

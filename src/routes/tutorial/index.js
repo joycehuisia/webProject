@@ -10,22 +10,15 @@ import React from 'react';
 import Tutorial from './Tutorial';
 import Layout from '../../components/Layout';
 
-function getFeed() {
-  const language = 'ch';
-  return fetch(`http://localhost:3000/baseText/notes-${language}.json`)
-    .then(resp => resp.json())
-    .then(body => body);
-}
+const title = 'Tutorial';
 
-async function action() {
-  const data = await getFeed();
-
+function action() {
   return {
-    title: 'Tutorial',
     chunks: ['tutorial'],
+    title,
     component: (
       <Layout>
-        <Tutorial menu={data.menu} />
+        <Tutorial />
       </Layout>
     ),
   };
